@@ -1,0 +1,16 @@
+ <svg 
+      viewBox="0 0 200 200" 
+      width={size} 
+      height={size}
+      xmlns="http://www.w3.org/2000/svg"
+      style={{ flexShrink: 0 }}
+    >
+      <circle cx="100" cy="100" r="90" fill="none" stroke="#ff0000" strokeWidth="3"/>
+      <circle cx="100" cy="100" r="90" fill="none" stroke="rgba(255,0,0,0.1)" strokeWidth="8"/>
+      <path d="M 50 60 L 35 100 L 50 140" stroke="#ffffff" strokeWidth="5" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
+      <path d="M 150 60 L 165 100 L 150 140" stroke="#ffffff" strokeWidth="5" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
+      <path d="M 85 45 L 75 95 L 95 95 L 85 155" stroke="#ff0000" strokeWidth="6" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
+      <text x="100" y="115" textAnchor="middle" fontSize="60" fontWeight="700" fill="#ffffff" fontFamily="Arial, sans-serif">S</text>
+      <circle cx="100" cy="25" r="3" fill="#ff0000" />
+      <circle cx="100" cy="175" r="3" fill="#ff0000" />
+    </svg>
