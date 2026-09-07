@@ -2,13 +2,15 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
 import './App.css';
 import Profile from "./assets/steve.jpg";
-import  Nosa from "./assets/NOSA.png";
+import Nosa from "./assets/NOSA.png";
 import Payslip from "./assets/PAYSLIP.png";
 import Capstone from "./assets/capstone.png";
 import Dtr from "./assets/DTR.png";
 import Aicc from "./assets/AICC.png";
-import Downloader  from "./assets/AppDownloader.png";
+import Downloader from "./assets/AppDownloader.png";
 import Baymax from "./assets/baymax.png";
+import Eloan from "./assets/Eloan.png";
+import CiApp from "./assets/CI_App.png";
 
 function App() {
   const [emailData, setEmailData] = useState({
@@ -114,8 +116,6 @@ function App() {
 
   // Download Resume Handler
   const handleDownloadResume = () => {
-    // You can replace this with your actual PDF URL
-    // For demo, we'll create a simple text file
     const resumeContent = `
       STEVE CALVIN BARRERA
       Software Developer
@@ -543,15 +543,6 @@ function App() {
                 >
                   Contact Me
                 </motion.button>
-                {/* <motion.button 
-                  className="btn-download"
-                  onClick={handleDownloadResume}
-                  whileHover={{ scale: 1.05, boxShadow: "0 0 40px rgba(255,0,0,0.2)" }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <i className="fas fa-download"></i> 
-                  Download Resume
-                </motion.button> */}
               </motion.div>
 
               <motion.div 
@@ -600,7 +591,7 @@ function App() {
                     { icon: 'fab fa-android', delay: 0 },
                     { icon: 'fab fa-java', delay: 0.5 },
                     { icon: 'fas fa-database', delay: 1 },
-                    { icon: 'fab fa-php', delay: 1.5 }
+                    { icon: 'fas fa-leaf', delay: 1.5 }
                   ].map((item, index) => (
                     <motion.div 
                       key={index}
@@ -957,7 +948,7 @@ function App() {
         </div>
       </section>
 
-    {/* ===== PROJECTS SECTION ===== */}
+      {/* ===== PROJECTS SECTION ===== */}
       <section ref={projectsRef} id="projects" className="projects-section">
         <div className="section-container">
           <motion.div
@@ -982,6 +973,13 @@ function App() {
             <motion.p className="section-subtitle" variants={fadeInUp}>
               A selection of my recent work and achievements
             </motion.p>
+
+            {/* Sub-section 1: Web Systems & Software */}
+            <motion.div variants={fadeInUp} style={{ marginBottom: '40px' }}>
+              <h3 style={{ fontSize: '1.5rem', marginBottom: '20px', color: '#fff', borderLeft: '4px solid #ff0000', paddingLeft: '12px' }}>
+                Web Systems &amp; Software Projects
+              </h3>
+            </motion.div>
 
             <motion.div className="projects-grid" variants={staggerContainer}>
               {[
@@ -1022,13 +1020,13 @@ function App() {
                   tech: ['PHP', 'MySQL', 'JavaScript', 'CSS']
                 },
                 {
-                category: 'Capstone Project',
-                title: 'Traditional Fishing Gear Preservation System',
-                desc: 'An interactive educational platform designed to preserve and showcase traditional fishing gear crafting techniques, featuring AR view integration, step-by-step tutorials, and responsive 3D models.',
-                icon: 'fa-cube',
-                image: Capstone, // Replace with your actual imported image variable if needed
-                achievements: ['🎣 AR 3D Model Integration', '📚 Interactive Crafting Tutorials', '🌊 Cultural Heritage Preservation'],
-                tech: ['PHP', 'MySQL', 'JavaScript', 'CSS', 'AR.js']
+                  category: 'Capstone Project',
+                  title: 'Traditional Fishing Gear Preservation System',
+                  desc: 'An interactive educational platform designed to preserve and showcase traditional fishing gear crafting techniques, featuring AR view integration, step-by-step tutorials, and responsive 3D models.',
+                  icon: 'fa-cube',
+                  image: Capstone,
+                  achievements: ['🎣 AR 3D Model Integration', '📚 Interactive Crafting Tutorials', '🌊 Cultural Heritage Preservation'],
+                  tech: ['PHP', 'MySQL', 'JavaScript', 'CSS', 'AR.js']
                 },
                 {
                   category: 'Corporate Project',
@@ -1040,20 +1038,20 @@ function App() {
                   achievements: ['⚡ Centralized App Distribution', '🔒 Secure Access Control', '📦 Version Tracking & Updates'],
                   tech: ['React', 'Supabase', 'JavaScript', 'TailwindCSS']
                 },
-               {
-                category: 'Personal Project',
-                title: 'B.A.Y.M.A.X Local Personal AI',
-                desc: 'An intelligent locally deployed AI assistant built to provide real-time support, answer user queries, and automate routine tasks while keeping all data securely processed within the local environment.',
-                link: 'https://redwing08.github.io/BAYMAX-HUD/',
-                icon: 'fa-download',
-                image: Baymax,
-                achievements: [
-                  '🤖 Personalized AI Assistant',
-                  '🔒 Secure Local Data Processing',
-                  '⚡ Real-Time Intelligent Responses'
-                ],
-                tech: ['React', 'Llama', 'JavaScript', 'CSS']
-              }
+                {
+                  category: 'Personal Project',
+                  title: 'B.A.Y.M.A.X Local Personal AI',
+                  desc: 'An intelligent locally deployed AI assistant built to provide real-time support, answer user queries, and automate routine tasks while keeping all data securely processed within the local environment.',
+                  link: 'https://redwing08.github.io/BAYMAX-HUD/',
+                  icon: 'fa-download',
+                  image: Baymax,
+                  achievements: [
+                    '🤖 Personalized AI Assistant',
+                    '🔒 Secure Local Data Processing',
+                    '⚡ Real-Time Intelligent Responses'
+                  ],
+                  tech: ['React', 'Llama', 'JavaScript', 'CSS']
+                }
               ].map((project, index) => (
                 <motion.div 
                   key={index}
@@ -1080,14 +1078,12 @@ function App() {
                       </motion.div>
                     </div>
                   </div>
-                  {/* Layout */}
                   <div className="project-content">
                     <span className="project-category-tag" style={{ fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '1px', color: 'var(--accent-color, #ff0000)', fontWeight: 600, display: 'block', marginBottom: '8px' }}>
                       {project.category}
                     </span>
                     <h3>{project.title}</h3>
                     <p>{project.desc}</p>
-                    {/* 👇 Add this block to render the link if it exists */}
                     {project.link && (
                       <div className="project-link-wrapper" style={{ marginBottom: '12px' }}>
                         <a 
@@ -1107,7 +1103,6 @@ function App() {
                         <span key={tech} className="tech-tag">{tech}</span>
                       ))}
                     </div>
-                    
                     <div className="project-achievements">
                       {project.achievements.map(achievement => (
                         <span key={achievement} className="achievement-tag">
@@ -1119,6 +1114,129 @@ function App() {
                 </motion.div>
               ))}
             </motion.div>
+
+            {/* Sub-section 2: Mobile Apps Showcase */}
+            <motion.div variants={fadeInUp} style={{ margin: '60px 0 30px 0' }}>
+              <h3 style={{ fontSize: '1.5rem', marginBottom: '10px', color: '#fff', borderLeft: '4px solid #ff0000', paddingLeft: '12px' }}>
+                Mobile Applications Showcase
+              </h3>
+              <p style={{ color: '#aaa', fontSize: '0.95rem' }}>Deployed mobile app interface layout matching mobile dimensions.</p>
+            </motion.div>
+
+            <motion.div className="projects-grid" variants={staggerContainer}>
+              {[
+                {
+                  category: 'Mobile Application',
+                  title: 'E-Loan App - Financial Services',
+                  desc: 'Mobile client entry and management system featuring server connection status, quick actions for client creation and lists, and interactive system operation guides.',
+                  image: Eloan,
+                  achievements: ['📱 Mobile UI Layout', '🔒 Server Connection Status', '⚡ Quick Action Modules'],
+                  tech: ['Android Studio', 'Java', 'XML', 'Room Database']
+                }, 
+                {
+                  category: 'Mobile Application',
+                  title: 'Credit Investigation App - Credit Checking',
+                  desc: 'Mobile client entry and management system featuring server connection status, quick actions for client creation and lists, and interactive system operation guides.',
+                  image: CiApp, 
+                  achievements: ['📱 Mobile UI Layout', '🔒 Server Connection Status', '⚡ Quick Action Modules'],
+                  tech: ['Android Studio', 'Java', 'XML', 'Room Database']
+                }
+              ].map((mobApp, index) => (
+                <motion.div 
+                  key={index}
+                  className="project-card"
+                  variants={fadeInUp}
+                  whileHover={{ y: -10, boxShadow: '0 20px 40px rgba(255,0,0,0.15)' }}
+                >
+                  <div style={{ background: '#112211', marginBlockStart: '20px', borderRadius: '24px', padding: '12px', border: '3px solid #2e5a2e', maxWidth: '320px', margin: '0 auto 15px auto', boxShadow: '0 10px 25px rgba(0,0,0,0.5)' }}>
+                    <img 
+                      src={mobApp.image} 
+                      alt={mobApp.title} 
+                      style={{ width: '100%', height: 'auto', borderRadius: '12px', display: 'block' }} 
+                    />
+                  </div>
+
+                  <div className="project-content">
+                    <span className="project-category-tag" style={{ fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '1px', color: 'var(--accent-color, #ff0000)', fontWeight: 600, display: 'block', marginBottom: '8px' }}>
+                      {mobApp.category}
+                    </span>
+                    <h3>{mobApp.title}</h3>
+                    <p>{mobApp.desc}</p>
+                    <div className="project-technologies">
+                      {mobApp.tech.map(tech => (
+                        <span key={tech} className="tech-tag">{tech}</span>
+                      ))}
+                    </div>
+                    <div className="project-achievements">
+                      {mobApp.achievements.map(achievement => (
+                        <span key={achievement} className="achievement-tag">
+                          {achievement}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </motion.div>
+
+            {/* Sub-section 3: GLB 3D Models Showcase */}
+            <motion.div variants={fadeInUp} style={{ margin: '60px 0 30px 0' }}>
+              <h3 style={{ fontSize: '1.5rem', marginBottom: '10px', color: '#fff', borderLeft: '4px solid #ff0000', paddingLeft: '12px' }}>
+                Interactive GLB 3D Models
+              </h3>
+              <p style={{ color: '#aaa', fontSize: '0.95rem' }}>Hover over the model cards below to preview interactive 3D assets created for applications.</p>
+            </motion.div>
+
+            <motion.div className="projects-grid" variants={staggerContainer}>
+              {[
+                {
+                  title: 'Traditional Fishing Trap 3D Model',
+                  desc: 'A detailed .glb asset optimized for web and AR environments, showcasing cultural preservation artifacts.',
+                  tech: ['Blender', 'GLTF/GLB', 'Three.js'],
+                  file: 'fishing_trap.glb'
+                },
+                {
+                  title: 'App HUD Element Component',
+                  desc: 'Futuristic sci-fi HUD interface model designed for interactive immersion panels.',
+                  tech: ['Blender', 'GLTF/GLB', 'React Three Fiber'],
+                  file: 'hud_element.glb'
+                }
+              ].map((modelItem, index) => (
+                <motion.div 
+                  key={index}
+                  className="project-card model-3d-card"
+                  variants={fadeInUp}
+                  whileHover={{ 
+                    scale: 1.03,
+                    boxShadow: '0 25px 50px rgba(255,0,0,0.25)',
+                    borderColor: '#ff0000'
+                  }}
+                  transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+                  style={{ border: '1px solid #222', background: '#151515', padding: '20px', borderRadius: '12px', textAlign: 'center', position: 'relative', overflow: 'hidden' }}
+                >
+                  <div style={{ width: '100%', height: '140px', background: '#0a0a0a', borderRadius: '8px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', marginBottom: '15px', border: '1px dashed #444' }}>
+                    <motion.div
+                      whileHover={{ rotateY: 180, scale: 1.2 }}
+                      transition={{ duration: 0.8 }}
+                    >
+                      <i className="fas fa-cube" style={{ fontSize: '3rem', color: '#ff0000', marginBottom: '8px' }}></i>
+                    </motion.div>
+                    <span style={{ fontSize: '0.8rem', color: '#888' }}>Interactive Hover Preview (.glb)</span>
+                  </div>
+                  <div className="project-content" style={{ padding: 0 }}>
+                    <span style={{ fontSize: '0.7rem', color: '#ff0000', textTransform: 'uppercase', fontWeight: 'bold', letterSpacing: '1px' }}>3D Asset</span>
+                    <h3 style={{ fontSize: '1.2rem', margin: '8px 0' }}>{modelItem.title}</h3>
+                    <p style={{ fontSize: '0.9rem', color: '#bbb', marginBottom: '15px' }}>{modelItem.desc}</p>
+                    <div className="project-technologies" style={{ justifyContent: 'center', display: 'flex', gap: '6px', flexWrap: 'wrap' }}>
+                      {modelItem.tech.map(t => (
+                        <span key={t} className="tech-tag" style={{ fontSize: '0.75rem', background: '#222', padding: '3px 8px', borderRadius: '4px' }}>{t}</span>
+                      ))}
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </motion.div>
+
           </motion.div>
         </div>
       </section>
@@ -1311,9 +1429,9 @@ function App() {
           </div>
           
           <div className="footer-social">
-            <a href="#"><i className="fab fa-github"></i></a>
-            <a href="#"><i className="fab fa-linkedin-in"></i></a>
-            <a href="#"><i className="fab fa-facebook"></i></a>
+            <a href="https://github.com/redwing08"><i className="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/steve-calvin-barrera-3b6625313/"><i className="fab fa-linkedin-in"></i></a>
+            <a href="https://www.facebook.com/stevecalvinromano.barrera/"><i className="fab fa-facebook"></i></a>
           </div>
         </div>
         
