@@ -10,7 +10,12 @@ import Aicc from "./assets/AICC.png";
 import Downloader from "./assets/AppDownloader.png";
 import Baymax from "./assets/baymax.png";
 import Eloan from "./assets/Eloan.png";
+import Agent from "./assets/Agent.png";
 import CiApp from "./assets/CI_App.png";
+import QR from "./assets/QR.png";
+import Receipt from "./assets/Receipt.png";
+import Asset from "./assets/Asset.png";
+import HRBLIZ from "./assets/hrBliz.png";
 
 function App() {
   const [emailData, setEmailData] = useState({
@@ -551,7 +556,7 @@ function App() {
               >
                 {[
                   { number: '1+', label: 'Years Experience' },
-                  { number: '11', label: 'Projects' },
+                  { number: '14', label: 'Projects' },
                   { number: '1', label: 'Clients' },
                   { number: '12', label: 'Awards' }
                 ].map((stat, index) => (
@@ -950,11 +955,11 @@ function App() {
 
       {/* ===== PROJECTS SECTION ===== */}
       <section ref={projectsRef} id="projects" className="projects-section">
-        <div className="section-container">
+        <div className="section-container" style={{ width: '100%', maxWidth: '1200px', margin: '0 auto', display: 'block', visibility: 'visible', opacity: 1 }}>
           <motion.div
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
+            viewport={{ once: true, amount: 0.1 }}
             variants={staggerContainer}
           >
             <motion.div className="section-header" variants={fadeInUp}>
@@ -981,7 +986,7 @@ function App() {
               </h3>
             </motion.div>
 
-            <motion.div className="projects-grid" variants={staggerContainer}>
+            <motion.div className="projects-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '30px', width: '100%' }} variants={staggerContainer}>
               {[
                 {
                   category: 'Client Project',
@@ -1018,6 +1023,15 @@ function App() {
                   image: Aicc,
                   achievements: ['✅ Real-time Stock Tracking', '📅 Automated Report Generation', '🔗 Secure Database Architecture'],
                   tech: ['PHP', 'MySQL', 'JavaScript', 'CSS']
+                },
+                {
+                  category: 'Corporate System',
+                  title: 'HR Bliz',
+                  desc: 'Comprehensive corporate human resources platform built to manage personnel data, employee workflows, and administrative records, featuring automated reporting powered by Jasper Reports.',
+                  icon: 'fa-users-cog',
+                  image: HRBLIZ,
+                  achievements: ['✅ Personnel Record Management', '📊 Custom Jasper Reports', '🔗 Secure Enterprise Database'],
+                  tech: ['Java', 'Struts', 'Hibernate', 'MS SQL Server', 'Jasper Reports']
                 },
                 {
                   category: 'Capstone Project',
@@ -1115,20 +1129,20 @@ function App() {
               ))}
             </motion.div>
 
-            {/* Sub-section 2: Mobile Apps Showcase */}
+            {/* Sub-section 2: Mobile Applications Showcase */}
             <motion.div variants={fadeInUp} style={{ margin: '60px 0 30px 0' }}>
               <h3 style={{ fontSize: '1.5rem', marginBottom: '10px', color: '#fff', borderLeft: '4px solid #ff0000', paddingLeft: '12px' }}>
                 Mobile Applications Showcase
               </h3>
-              <p style={{ color: '#aaa', fontSize: '0.95rem' }}>Deployed mobile app interface layout matching mobile dimensions.</p>
+              <p style={{ color: '#aaa', fontSize: '0.95rem' }}>Deployed mobile app interface layouts matching mobile device dimensions.</p>
             </motion.div>
 
-            <motion.div className="projects-grid" variants={staggerContainer}>
+            <motion.div className="projects-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '30px', width: '100%' }} variants={staggerContainer}>
               {[
                 {
                   category: 'Mobile Application',
                   title: 'E-Loan App - Financial Services',
-                  desc: 'Mobile client entry and management system featuring server connection status, quick actions for client creation and lists, and interactive system operation guides.',
+                  desc: 'Mobile client entry and management system featuring server connection status, quick actions for client creation and lists.',
                   image: Eloan,
                   achievements: ['📱 Mobile UI Layout', '🔒 Server Connection Status', '⚡ Quick Action Modules'],
                   tech: ['Android Studio', 'Java', 'XML', 'Room Database']
@@ -1136,11 +1150,44 @@ function App() {
                 {
                   category: 'Mobile Application',
                   title: 'Credit Investigation App - Credit Checking',
-                  desc: 'Mobile client entry and management system featuring server connection status, quick actions for client creation and lists, and interactive system operation guides.',
+                  desc: 'Mobile client entry and management system featuring server connection status, quick actions for client creation and lists.',
                   image: CiApp, 
                   achievements: ['📱 Mobile UI Layout', '🔒 Server Connection Status', '⚡ Quick Action Modules'],
                   tech: ['Android Studio', 'Java', 'XML', 'Room Database']
+                },
+                {
+                  category: 'Mobile Application',
+                  title: 'Agent Entry App',
+                  desc: 'Mobile client entry and management system featuring server connection status, quick actions for client creation, and streamlined field tracking.',
+                  image: Agent,
+                  achievements: ['📱 Mobile UI Layout', '🔒 Server Connection Status', '⚡ Quick Action Modules'],
+                  tech: ['Android Studio', 'Kotlin', 'Room Database']
+                },
+                {
+                  category: 'Mobile Application',
+                  title: 'Asset Receipt Scanner',
+                  desc: 'Mobile scanning tool used to capture and digitize asset receipts for direct attachment to liquidation and cash advance reports.',
+                  image: Asset,
+                  achievements: ['📷 CameraX Integration', '⚡ Instant Scanning', '🔄 Sync Capabilities'],
+                  tech: ['Android Studio', 'Java', 'ML Kit']
+                },
+                {
+                  category: 'Mobile Application',
+                  title: 'QR Overrider App',
+                  desc: 'Management tool utilized by Operations Managers (OM) to verify sudden changes via QR code scanning, update system data, and approve liquidations and cash advances.',
+                  image: QR,
+                    achievements: ['📷 CameraX Integration', '⚡ Instant Scanning', '🔄 Sync Capabilities'],
+                  tech: ['Android Studio', 'Kotlin']
+                },
+                {
+                  category: 'Mobile Application',
+                  title: 'Provision Receipt App',
+                  desc: 'Mobile application designed to track, log, and manage provisional receipts for secure financial record-keeping and auditing workflows.',
+                  image: Receipt,
+                  achievements: ['📱 Digital Receipt Logs', '⚡ Fast Transaction Entry', '📋 Export Reports'],
+                  tech: ['Android Studio', 'Java', 'Room']
                 }
+              
               ].map((mobApp, index) => (
                 <motion.div 
                   key={index}
@@ -1148,11 +1195,12 @@ function App() {
                   variants={fadeInUp}
                   whileHover={{ y: -10, boxShadow: '0 20px 40px rgba(255,0,0,0.15)' }}
                 >
-                  <div style={{ background: '#112211', marginBlockStart: '20px', borderRadius: '24px', padding: '12px', border: '3px solid #2e5a2e', maxWidth: '320px', margin: '0 auto 15px auto', boxShadow: '0 10px 25px rgba(0,0,0,0.5)' }}>
+                  <div style={{ background: '#111', marginBlockStart: '20px', borderRadius: '28px', padding: '12px', border: '3px solid #333', maxWidth: '280px', margin: '20px auto 15px auto', boxShadow: '0 10px 25px rgba(0,0,0,0.6)' }}>
+                    <div style={{ width: '60px', height: '14px', background: '#000', margin: '0 auto 8px auto', borderRadius: '10px' }}></div>
                     <img 
                       src={mobApp.image} 
                       alt={mobApp.title} 
-                      style={{ width: '100%', height: 'auto', borderRadius: '12px', display: 'block' }} 
+                      style={{ width: '100%', height: 'auto', borderRadius: '14px', display: 'block' }} 
                     />
                   </div>
 
@@ -1182,12 +1230,12 @@ function App() {
             {/* Sub-section 3: GLB 3D Models Showcase */}
             <motion.div variants={fadeInUp} style={{ margin: '60px 0 30px 0' }}>
               <h3 style={{ fontSize: '1.5rem', marginBottom: '10px', color: '#fff', borderLeft: '4px solid #ff0000', paddingLeft: '12px' }}>
-                Interactive GLB 3D Models
+                Interactive GLB 3D Models Showcase
               </h3>
-              <p style={{ color: '#aaa', fontSize: '0.95rem' }}>Hover over the model cards below to preview interactive 3D assets created for applications.</p>
+              <p style={{ color: '#aaa', fontSize: '0.95rem' }}>View and explore the 5 interactive 3D assets generated and optimized for applications.</p>
             </motion.div>
 
-            <motion.div className="projects-grid" variants={staggerContainer}>
+            <motion.div className="projects-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '30px', width: '100%' }} variants={staggerContainer}>
               {[
                 {
                   title: 'Traditional Fishing Trap 3D Model',
@@ -1200,6 +1248,24 @@ function App() {
                   desc: 'Futuristic sci-fi HUD interface model designed for interactive immersion panels.',
                   tech: ['Blender', 'GLTF/GLB', 'React Three Fiber'],
                   file: 'hud_element.glb'
+                },
+                {
+                  title: 'Virtual Smartphone Frame Model',
+                  desc: 'Low-poly mobile chassis .glb asset utilized for custom device mockup presentations.',
+                  tech: ['Blender', 'GLTF/GLB', 'Three.js'],
+                  file: 'smartphone_mockup.glb'
+                },
+                {
+                  title: 'Interactive Database Node Asset',
+                  desc: '3D structural representation of backend server clusters and node relationships.',
+                  tech: ['Blender', 'GLTF/GLB', 'Three.js'],
+                  file: 'db_node.glb'
+                },
+                {
+                  title: 'AI Hologram Core Orb Model',
+                  desc: 'Futuristic glowing particle orb model created for AI virtual assistant visual interfaces.',
+                  tech: ['Blender', 'GLTF/GLB', 'Shader Nodes'],
+                  file: 'ai_core_orb.glb'
                 }
               ].map((modelItem, index) => (
                 <motion.div 
@@ -1207,30 +1273,42 @@ function App() {
                   className="project-card model-3d-card"
                   variants={fadeInUp}
                   whileHover={{ 
-                    scale: 1.03,
+                    scale: 1.02,
                     boxShadow: '0 25px 50px rgba(255,0,0,0.25)',
                     borderColor: '#ff0000'
                   }}
                   transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-                  style={{ border: '1px solid #222', background: '#151515', padding: '20px', borderRadius: '12px', textAlign: 'center', position: 'relative', overflow: 'hidden' }}
+                  style={{ border: '1px solid #333', background: '#181818', padding: '20px', borderRadius: '16px', textAlign: 'left', position: 'relative', overflow: 'hidden', display: 'flex', flexDirection: 'column', gap: '15px' }}
                 >
-                  <div style={{ width: '100%', height: '140px', background: '#0a0a0a', borderRadius: '8px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', marginBottom: '15px', border: '1px dashed #444' }}>
+                  <div style={{ width: '100%', height: '180px', background: 'linear-gradient(135deg, #0d0d0d 0%, #1f1f1f 100%)', borderRadius: '12px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', border: '1px solid #444', position: 'relative', boxShadow: 'inset 0 0 15px rgba(0,0,0,0.8)' }}>
                     <motion.div
-                      whileHover={{ rotateY: 180, scale: 1.2 }}
-                      transition={{ duration: 0.8 }}
+                      animate={{ rotate: 360 }}
+                      transition={{ duration: 15, repeat: Infinity, ease: 'linear' }}
+                      style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}
                     >
-                      <i className="fas fa-cube" style={{ fontSize: '3rem', color: '#ff0000', marginBottom: '8px' }}></i>
+                      <i className="fas fa-cube" style={{ fontSize: '3.5rem', color: '#ff0000', filter: 'drop-shadow(0 0 10px rgba(255,0,0,0.5))' }}></i>
                     </motion.div>
-                    <span style={{ fontSize: '0.8rem', color: '#888' }}>Interactive Hover Preview (.glb)</span>
+                    <span style={{ fontSize: '0.8rem', color: '#ccc', marginTop: '10px', background: 'rgba(0,0,0,0.6)', padding: '4px 10px', borderRadius: '20px', border: '1px solid #555' }}>
+                      <i className="fas fa-eye" style={{ marginRight: '6px', color: '#ff0000' }}></i>Interactive 3D Asset Viewer
+                    </span>
                   </div>
+
                   <div className="project-content" style={{ padding: 0 }}>
-                    <span style={{ fontSize: '0.7rem', color: '#ff0000', textTransform: 'uppercase', fontWeight: 'bold', letterSpacing: '1px' }}>3D Asset</span>
-                    <h3 style={{ fontSize: '1.2rem', margin: '8px 0' }}>{modelItem.title}</h3>
-                    <p style={{ fontSize: '0.9rem', color: '#bbb', marginBottom: '15px' }}>{modelItem.desc}</p>
-                    <div className="project-technologies" style={{ justifyContent: 'center', display: 'flex', gap: '6px', flexWrap: 'wrap' }}>
+                    <span style={{ fontSize: '0.75rem', color: '#ff0000', textTransform: 'uppercase', fontWeight: 'bold', letterSpacing: '1px', display: 'block', marginBottom: '4px' }}>3D Model Asset</span>
+                    <h3 style={{ fontSize: '1.25rem', margin: '4px 0 8px 0', color: '#fff' }}>{modelItem.title}</h3>
+                    <p style={{ fontSize: '0.9rem', color: '#bbb', marginBottom: '15px', lineHeight: '1.4' }}>{modelItem.desc}</p>
+                    
+                    <div className="project-technologies" style={{ display: 'flex', gap: '6px', flexWrap: 'wrap', marginBottom: '15px' }}>
                       {modelItem.tech.map(t => (
-                        <span key={t} className="tech-tag" style={{ fontSize: '0.75rem', background: '#222', padding: '3px 8px', borderRadius: '4px' }}>{t}</span>
+                        <span key={t} className="tech-tag" style={{ fontSize: '0.75rem', background: '#252525', color: '#ddd', padding: '4px 10px', borderRadius: '6px', border: '1px solid #333' }}>{t}</span>
                       ))}
+                    </div>
+
+                    <div style={{ background: '#111', padding: '10px 12px', borderRadius: '8px', border: '1px solid #2a2a2a', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                      <span style={{ fontSize: '0.8rem', color: '#888', fontFamily: 'monospace' }}>File: {modelItem.file}</span>
+                      <span style={{ fontSize: '0.8rem', color: '#4ade80', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                        <i className="fas fa-check-circle"></i> Ready
+                      </span>
                     </div>
                   </div>
                 </motion.div>
